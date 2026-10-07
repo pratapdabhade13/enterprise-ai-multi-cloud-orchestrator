@@ -94,3 +94,53 @@ class StorageManager:
                     "error": str(error)
                 }
             ]
+
+    def download_file(self, object_key):
+
+        try:
+
+            response = self.s3.get_object(
+                Bucket=self.bucket_name,
+                Key=object_key
+            )
+
+            return {
+                "success": True,
+                "content": response["Body"].read(),
+                "content_type": response.get(
+                    "ContentType",
+                    "application/octet-stream"
+                ),
+                "file_name": object_key.split("/")[-1]
+            }
+
+        except Exception as error:
+
+            return {
+                "success": False,
+                "message": "AWS S3 download failed",
+                "error": str(error)
+            }
+
+    def delete_file(self, object_key):
+
+        try:
+
+            self.s3.delete_object(
+                Bucket=self.bucket_name,
+                Key=object_key
+            )
+
+            return {
+                "success": True,
+                "object_key": object_key,
+                "message": "File deleted from AWS S3 successfully"
+            }
+
+        except Exception as error:
+
+            return {
+                "success": False,
+                "message": "AWS S3 delete failed",
+                "error": str(error)
+            }

@@ -5,6 +5,7 @@ from fastapi import (
     Form,
     HTTPException
 )
+from fastapi.responses import Response
 
 from storage_manager import StorageManager
 
@@ -68,3 +69,50 @@ def get_storage_files():
     return {
         "files": storage_manager.get_storage_files()
     }
+
+
+@router.get("/storage/download")
+def download_file(object_key: str):
+
+    result = storage_manager.download_file(
+        object_key
+    )
+
+    if not result.get("success"):
+
+        raise HTTPException(
+            status_code=404,
+            detail=result.get(
+                "message",
+                "File not found"
+            )
+        )
+
+    return Response(
+        content=result["content"],
+        media_type=result["content_type"],
+        headers={
+            "Content-Disposition":
+                f'attachment; filename="{result["file_name"]}"'
+        }
+    )
+
+
+@router.delete("/storage/delete")
+def delete_file(object_key: str):
+
+    result = storage_manager.delete_file(
+        object_key
+    )
+
+    if not result.get("success"):
+
+        raise HTTPException(
+            status_code=500,
+            detail=result.get(
+                "message",
+                "File deletion failed"
+            )
+        )
+
+    return result
