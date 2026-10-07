@@ -13,12 +13,12 @@ app = FastAPI(
 )
 
 
-# Allow React Frontend to communicate with FastAPI
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "http://localhost:5174"
+        "http://localhost:5174",
+        "https://enterprise-ai-multi-cloud-orchestra.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -26,21 +26,16 @@ app.add_middleware(
 )
 
 
-# Cloud Provider APIs
 app.include_router(
     cloud_router,
     prefix="/api/cloud"
 )
 
-
-# Resource Management APIs
 app.include_router(
     resource_router,
     prefix="/api"
 )
 
-
-# Storage APIs
 app.include_router(
     storage_router,
     prefix="/api"
