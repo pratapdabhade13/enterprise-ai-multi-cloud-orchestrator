@@ -1,0 +1,10 @@
+﻿backend/venv/
+backend/__pycache__/
+frontend/node_modules/
+.env
+*.pem
+*.key
+.aws/
+
+backend/storage_files/
+backend/s3_test.txt

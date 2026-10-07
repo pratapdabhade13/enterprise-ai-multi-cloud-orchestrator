@@ -1,0 +1,510 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b1120;
+  color: #e5e7eb;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.15),
+      transparent 35%
+    ),
+    #0b1120;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 45px;
+  background: #111827;
+  border-bottom: 1px solid #263244;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #f8fafc;
+}
+
+.header p {
+  margin: 8px 0 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.backend-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: #172033;
+  border: 1px solid #2b3950;
+  font-size: 14px;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.online {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.status-dot.offline {
+  background: #ef4444;
+}
+
+
+/* =========================
+   COMMON SECTIONS
+========================= */
+
+.dashboard-section,
+.section {
+  margin: 28px 45px;
+}
+
+.dashboard-section h2,
+.section h2 {
+  margin-bottom: 18px;
+  color: #f8fafc;
+  font-size: 21px;
+}
+
+
+/* =========================
+   CLOUD CARDS
+========================= */
+
+.cloud-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cloud-card {
+  background: linear-gradient(
+    145deg,
+    #172033,
+    #111827
+  );
+  border: 1px solid #29374c;
+  border-radius: 16px;
+  padding: 25px;
+  min-height: 160px;
+  transition: 0.25s;
+}
+
+.cloud-card:hover {
+  transform: translateY(-3px);
+  border-color: #3b82f6;
+}
+
+.cloud-card h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #f8fafc;
+}
+
+.cloud-card p {
+  margin: 5px 0;
+  color: #94a3b8;
+}
+
+.cloud-card .cloud-count {
+  margin-top: 20px;
+  font-size: 34px;
+  font-weight: bold;
+  color: #60a5fa;
+}
+
+.cloud-card span {
+  display: block;
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+
+/* =========================
+   PROVIDERS
+========================= */
+
+.provider-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.provider-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  background: #111827;
+  border: 1px solid #263244;
+  border-radius: 12px;
+}
+
+.provider-item strong {
+  color: #f8fafc;
+}
+
+.provider-item span {
+  color: #22c55e;
+  font-size: 13px;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: #111827;
+  border: 1px solid #263244;
+  border-radius: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+thead {
+  background: #172033;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid #29374c;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #1f2937;
+  color: #dbeafe;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #172033;
+}
+
+.resource-status {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.view-button {
+  padding: 8px 13px;
+  border: none;
+  border-radius: 7px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.view-button:hover {
+  background: #3b82f6;
+}
+
+
+/* =========================
+   RESOURCE DETAILS
+========================= */
+
+.resource-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  background: #111827;
+  border: 1px solid #263244;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.resource-details p {
+  margin: 0;
+  padding: 17px 20px;
+  border-bottom: 1px solid #1f2937;
+  color: #cbd5e1;
+}
+
+.resource-details strong {
+  color: #f8fafc;
+}
+
+
+/* =========================
+   STORAGE
+========================= */
+
+.storage-panel {
+  background: linear-gradient(
+    145deg,
+    #172033,
+    #111827
+  );
+  border: 1px solid #29374c;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.storage-panel h3,
+.storage-list h3 {
+  margin-top: 0;
+  color: #f8fafc;
+  font-size: 18px;
+}
+
+.storage-panel p {
+  color: #94a3b8;
+}
+
+.storage-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.storage-controls select {
+  padding: 11px 14px;
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  outline: none;
+}
+
+.storage-controls input[type="file"] {
+  padding: 8px;
+  background: #0f172a;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+  border-radius: 8px;
+}
+
+.upload-button {
+  padding: 11px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.upload-button:hover {
+  background: #3b82f6;
+}
+
+.selected-file {
+  margin-top: 18px;
+  color: #60a5fa !important;
+}
+
+.upload-status {
+  margin-top: 15px;
+  color: #22c55e !important;
+  font-weight: 600;
+}
+
+.storage-list {
+  margin-top: 20px;
+  background: #111827;
+  border: 1px solid #263244;
+  border-radius: 14px;
+  padding: 22px;
+}
+
+.storage-list > p {
+  color: #64748b;
+}
+
+
+/* =========================
+   AI ADVISOR
+========================= */
+
+.ai-advisor {
+  background: linear-gradient(
+    145deg,
+    #172033,
+    #111827
+  );
+  border: 1px solid #29374c;
+  border-radius: 16px;
+  padding: 25px;
+}
+
+.ai-advisor h3 {
+  margin-top: 0;
+  color: #60a5fa;
+}
+
+.ai-advisor p {
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.recommendation {
+  margin-top: 20px;
+  padding: 18px;
+  border-left: 4px solid #3b82f6;
+  background: #0f172a;
+  border-radius: 8px;
+}
+
+.recommendation strong {
+  color: #f8fafc;
+}
+
+
+/* =========================
+   PERFORMANCE
+========================= */
+
+.performance-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.performance-card > div {
+  padding: 22px;
+  background: #111827;
+  border: 1px solid #263244;
+  border-radius: 14px;
+}
+
+.performance-card h3 {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.performance-card p {
+  margin: 14px 0 0;
+  color: #60a5fa;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top: 45px;
+  padding: 25px 45px;
+  text-align: center;
+  background: #111827;
+  border-top: 1px solid #263244;
+}
+
+footer p {
+  margin: 5px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 25px;
+  }
+
+  .dashboard-section,
+  .section {
+    margin: 22px 25px;
+  }
+
+  .cloud-cards,
+  .provider-list {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resource-details {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .header h1 {
+    font-size: 21px;
+  }
+
+  .dashboard-section,
+  .section {
+    margin: 18px 15px;
+  }
+
+  .performance-card {
+    grid-template-columns: 1fr;
+  }
+
+  .storage-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .storage-controls select,
+  .storage-controls input,
+  .upload-button {
+    width: 100%;
+  }
+
+}
